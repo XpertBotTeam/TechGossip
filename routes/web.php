@@ -17,7 +17,7 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', [PostController::class, "mainPage"]);
+Route::get('/', [PostController::class, "mainPage"])->name('home');
 
 Route::get('post/{Post}', [PostController::class, "viewPost"]);
 
@@ -27,3 +27,17 @@ Route::get('signup',[LoginSystem::class, "viewSignUpPage"])->middleware('guest')
 
 Route::post('signup',[LoginSystem::class, "construction"])->middleware('guest');
 
+Route::get('logout',[LoginSystem::class, "destruct"])->middleware('auth');
+
+Route::get("/dashboard", function(){
+    return view('pages.dashboard',[
+        'users' => User::all()
+    ]);
+})->middleware("admin");
+
+Route::get("/test", function (){
+    return view('pages.test');
+});
+Route::get("testSidebar", function (){
+    return view('pages.testSidebar');
+});

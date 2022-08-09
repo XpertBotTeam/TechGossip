@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Validation\Rule;
 
 class LoginSystem extends Controller
 {
@@ -17,7 +18,7 @@ class LoginSystem extends Controller
         if(auth()->attempt($attributes)){
             $user = User::where('username', $attributes['username'])->first();
             auth()->login($user);
-            return view('pages.welcome');
+            return redirect("/");
         }
         else{
             throw ValidationException::withMessages([
@@ -28,9 +29,9 @@ class LoginSystem extends Controller
     
     public function construction(){
         $attributes = request()->validate([
-            'email' => 'required',
-            'username' => 'required',
-            'password' => 'required',
+            'email' => ['required','email','max:255',Rule::unique('users','email')],
+            'username' => ['required','max:255',Rule::unique('users','email')],
+            'password' => ['required','min:7','max:255'],
         ]);
         
         $user = new User;
@@ -38,11 +39,16 @@ class LoginSystem extends Controller
         $user -> username = $attributes['username'];
         $user -> password = bcrypt($attributes['password']);
         $user -> save();
-        return view('pages.welcome');
+        return redirect("/");
     }
     
     public function viewSignUpPage(){
             return view('pages.signup');
+    }
+
+    public function destruct(){
+        auth()->logout();
+        return redirect("/");
     }
 
 
