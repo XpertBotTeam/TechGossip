@@ -1,0 +1,1 @@
+{{ddd($post -> title)}}

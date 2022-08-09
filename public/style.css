@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #fff;
+    color:black;
+}
+
+.navbar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    margin-left: -300px;
+    background-color: #7952b3;
+    transition: 0.4s;
+}
+
+.nav-link {
+    font-size: 1.25em;
+}
+
+.nav-link:active,
+.nav-link:focus,
+.nav-link:hover {
+    background-color: #ffffff26;
+}
+
+.dropdown-menu {
+    background-color: #7952b3;
+}
+
+.dropdown-item:active,
+.dropdown-item:focus,
+.dropdown-item:hover {
+    background-color: #ffffff26;
+}
+
+.my-container {
+    transition: 0.4s;
+    color:red;
+}
+
+
+/* for navbar */
+
+.active-nav {
+    margin-left: 0;
+}
+
+
+/* for main section */
+
+.active-cont {
+    margin-left: 250px;
+}
+
+#menu-btn {
+    background-color: #7952b3;
+    color: #fff;
+    position: fixed;
+    margin-top: 45%;
+    bottom:0;
+    margin-left: -11%;
+}
+
+#menu-btn:focus {
+    box-shadow: 0 0 0 0.25rem #7952b344;
+}
+
+
+/*for login section */
+
+#logInCanvas{
+    color:teal;
+    font-size: x-large;
+    text-align: left;
+    padding:20px;
+    margin-top: 9%;
+    background-color: rgb(229, 220, 229);
+    position: absolute; 
+    z-index: 1;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    width:500px;
+    border: 3px solid black;
+    border-radius: 35px;
+
+}
+.closeLoginBtn{
+float:right;
+padding:0px;
+border: 0px solid black;
+    border-radius: 30%;
+}
+#loginContainer{
+    margin:0 auto;
+    height: auto;
+    font-size: smaller;
+    width:300px;
+    border: 3px solid black;
+    padding:20px;
+    border-radius: 35px;
+    box-shadow: 5px 10px #888888;
+}
+#loginContainer p{
+   margin-bottom:4px;
+   margin-top:8px;
+}
+.loginButton{
+    background-color:aliceblue;
+    border-radius: 6px;
+    color:teal;
+    width:70px;
+    height: 30px;
+    margin:7%; 
+    font-size: smaller;
+    margin-left: 70%
+}
+
+input{
+    border-radius: 5px;
+    color:teal;
+    width:165px;
+    font-size: smaller;
+    height: 30px;
+}
+.error{
+    color:red;
+    font-size: small;
+}
+
+   
+    @media only screen and (max-width: 600px) {
+        #postcard {
+          width: 20rem;
+        }
+      }
+      #postcard{
+        max-width: 50rem;
+      }
+
+     
+
