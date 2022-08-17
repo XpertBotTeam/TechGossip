@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-info p-3">
+<nav v-bind:class="headerDesign">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">TechGossip</a>
+      <a class="navbar-brand" href="/">TechGossip</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -35,7 +35,7 @@
                
                 @guest
                 <a href="#SignIn" class="w3-bar-item w3-button" v-on:click="signupPop">Sign in</a>
-                <a href="signup" class="w3-bar-item w3-button">Sign up</a>
+                <a href="/signup" class="w3-bar-item w3-button">Sign up</a>
                 @endguest
               </div>
         </div>

@@ -1,8 +1,9 @@
 @props(['post'])
-<div class="card m-auto p-3" v-bind:class="contFontColor" id="postcard">
+<div class="card m-auto mt-4 p-3" v-bind:class="contFontColor" id="postcard">
             
     <span class="card-title"> <h5>{{$post -> title}}   &nbsp; &nbsp; {{ $post -> category -> name }}</h5>  ~ <em >posted by {{$post -> user -> username}}</em></p>
-    <img src="frog.png" class="card-img-top" alt="...">
+   
+      <img src="/storage/{{$post -> thumbnail}}" class="card-img-top" alt="...">
     
     <div class="card-body d-flex flex-row justify-content-between" >
       

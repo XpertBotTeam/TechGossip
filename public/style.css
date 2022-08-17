@@ -44,7 +44,7 @@ body {
     font-size: x-large;
     text-align: left;
     padding:20px;
-    margin-top: 9%;
+    margin-top: 5%;
     background-color: rgb(229, 220, 229);
     position: absolute; 
     z-index: 1;
@@ -108,7 +108,16 @@ input{
       }
       #postcard{
         max-width: 50rem;
+        position: static;
       }
 
+      .form-group{
+        margin: 20px;
+      }
+      
+      .img-fluid{
+        max-width: 500px;
+        margin-bottom: 6px;
+      }
      
 

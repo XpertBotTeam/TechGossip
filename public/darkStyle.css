@@ -11,6 +11,14 @@ body {
     
 }
 
+.navbar {
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position:sticky;
+}
+
 
 /* for main section */
 
@@ -105,7 +113,16 @@ input{
 @media only screen and (max-width: 600px) {
     #postcard {
       width: 20rem;
+      position: static;
     }
   }
   
-
+  .form-group{
+    margin: 20px;
+  }
+  
+  .img-fluid{
+    max-width: 500px;
+    margin-bottom: 6px;
+  }
+ 

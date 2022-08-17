@@ -5,6 +5,8 @@ use Illuminate\Foundation\Auth\User;
 use Illuminate\Validation\ValidationException;
 use App\Http\Controllers\LoginSystem;
 use App\Http\Controllers\PostController;
+use App\Models\Category;
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +42,37 @@ Route::get("/test", function (){
 });
 Route::get("testSidebar", function (){
     return view('pages.testSidebar');
+});
+
+Route::get("/upload", function (){
+    $categories= Category::all();
+    return view('pages.upload',[
+        "categories" => $categories
+    ]);
+});
+
+Route::post("upload", function(){
+    $attributes = request()->validate([
+        'title' => 'required',
+        'thumbnail'=> 'required||image',
+        'excerpt' => 'required',
+        'body' => 'required',
+        'category_id' => 'required',
+    ]);
+    
+    $attributes['user_id'] = auth()->id();
+    $attributes['thumbnail']= request()->file('thumbnail')->store('thumbnails');
+
+    Post::create($attributes);
+    
+   return redirect("/");
+});
+
+Route::get("{cat:slug}", function(Category $cat) {
+
+    return view('pages.index',[
+        
+       'posts' => $cat->post
+    
+    ]);
 });

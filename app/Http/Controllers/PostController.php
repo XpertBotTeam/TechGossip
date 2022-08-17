@@ -9,7 +9,7 @@ use App\Models\Post;
 class PostController extends Controller
 {
     function mainPage(){
-        return view("pages.welcome",[
+        return view("pages.index",[
             'posts' => Post::all()
         ]);
     }
