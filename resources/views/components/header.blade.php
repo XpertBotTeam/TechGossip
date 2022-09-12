@@ -31,12 +31,20 @@
                 @auth
                 <a href="#profile" class="w3-bar-item w3-button">profile</a>
                 <a href="logout" class="w3-bar-item w3-button">logout</a>
+                @if( !auth()->user()->subscribed)
+                <a href="subscriptionPage" class="w3-bar-item w3-button">subscribe</a>
+                
+                @else
+                <p class="w3-bar-item ">already subscribed!</p>
+                @endif
                 @endauth
                
                 @guest
                 <a href="#SignIn" class="w3-bar-item w3-button" v-on:click="signupPop">Sign in</a>
                 <a href="/signup" class="w3-bar-item w3-button">Sign up</a>
                 @endguest
+                
+                
               </div>
         </div>
 

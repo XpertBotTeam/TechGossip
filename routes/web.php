@@ -31,6 +31,26 @@ Route::post('signup',[LoginSystem::class, "construction"])->middleware('guest');
 
 Route::get('logout',[LoginSystem::class, "destruct"])->middleware('auth');
 
+Route::get('subscriptionPage',function(){return view('pages.subscription');});
+Route::post('subscribed',function(){
+    
+    
+   
+    $mailchimp = new \MailchimpMarketing\ApiClient();
+    $mailchimp->setConfig([
+        'apiKey' => config('services.mailchimp.key'),
+        'server' => 'us13'
+    ]);
+
+     $mailchimp->lists->addListMember('fb93fc2ab3',[
+        'email_address' => request('email'),
+        'status' => 'subscribed',
+    ]);
+    auth()->user()->subscribed=1;
+    auth()->user()->save();
+    return redirect("/");
+});
+
 Route::get("/dashboard", function(){
     return view('pages.dashboard',[
         'users' => User::all()
